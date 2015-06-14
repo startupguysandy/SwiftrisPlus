@@ -187,24 +187,3 @@ class GameScene: SKScene {
         runAction(SKAction.waitForDuration(longestDuration), completion:completion)
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

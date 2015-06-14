@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LVB-YS-i5n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ehq-M0-xz2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="1gA-Ce-J1T">
+            <objects>
+                <viewController id="ehq-M0-xz2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="K2K-VB-r6j"/>
+                        <viewControllerLayoutGuide type="bottom" id="ek0-ef-r7l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XuC-f4-pye">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Endless.png" translatesAutoresizingMaskIntoConstraints="NO" id="l4b-Ys-Hi6">
+                                <rect key="frame" x="37" y="316" width="114" height="100"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Leaders.png" translatesAutoresizingMaskIntoConstraints="NO" id="6ZU-gz-A2w">
+                                <rect key="frame" x="37" y="434" width="114" height="100"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Achievements.png" translatesAutoresizingMaskIntoConstraints="NO" id="h3G-yh-qgG">
+                                <rect key="frame" x="169" y="434" width="114" height="100"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q5V-Uq-2WQ">
+                                <rect key="frame" x="76" y="94" width="168" height="112"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Timed.png" translatesAutoresizingMaskIntoConstraints="NO" id="P1J-Az-Oqg">
+                                <rect key="frame" x="169" y="316" width="114" height="100"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H48-RA-w7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-30" y="387"/>
+        </scene>
         <!--Game View Controller-->
         <scene sceneID="CtS-rA-C9T">
             <objects>
@@ -91,9 +127,15 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="469" y="387"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Achievements.png" width="113" height="100"/>
+        <image name="Endless.png" width="113" height="100"/>
+        <image name="Leaders.png" width="113" height="100"/>
+        <image name="Timed.png" width="113" height="100"/>
+        <image name="logo.png" width="167" height="122"/>
         <image name="whitebg.png" width="84" height="100"/>
     </resources>
 </document>
