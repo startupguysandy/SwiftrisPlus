@@ -180,10 +180,8 @@ class Shape: Hashable, Printable {
             case 4:
                 return JShape(column: startingColumn, row: startingRow)
             case 5:
-                print("S Shape")
                 return SShape(column: startingColumn, row: startingRow)
             default:
-                print("Z Shape")
                 return ZShape(column: startingColumn, row: startingRow)
         }
     }

@@ -16,7 +16,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     var panPointReference:CGPoint?
     
     @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var levelLabel: UILabel!    
+    @IBOutlet weak var levelLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,7 +121,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         scene.stopTicking()
         scene.playSound("gameover.mp3")
         scene.animateCollapsingLines(swiftris.removeAllBlocks(), fallenBlocks: Array<Array<Block>>()) {
-            swiftris.beginGame()
+            println("Game ended")
         }
     }
     

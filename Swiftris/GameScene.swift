@@ -23,7 +23,7 @@ class GameScene: SKScene {
     var lastTick:NSDate?
     
     var textureCache = Dictionary<String, SKTexture>()
-   
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("NSCoder not supported")
     }
@@ -65,11 +65,6 @@ class GameScene: SKScene {
         if timePassed > tickLengthMillis {
             lastTick = NSDate()
             tick?()
-            /*
-            if tick != nil {
-               tick!()
-            }
-            */
         }
     }
     

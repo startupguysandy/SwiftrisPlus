@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Tin Bear Studios. All rights reserved.
 //
 
+import Foundation
+
 let NumColumns = 10
 let NumRows = 20
 
@@ -17,6 +19,11 @@ let PreviewRow = 1
 
 let PointsPerLine = 10
 let LevelThreshold = 400
+
+enum GameMode {
+    case Classic
+    case Timed
+}
 
 protocol SwiftrisDelegate {
     // Invoked when the current round of Swiftris ends
@@ -47,12 +54,22 @@ class Swiftris {
     var score:Int
     var level:Int
     
+    var secondsRemaining = 5
+    var timer = NSTimer()
+    
+    var gameModeTimed: GameMode
+    
     init() {
         score = 0
         level = 1
+        
         fallingShape = nil
         nextShape = nil
         blockArray = Array2D<Block>(columns: NumColumns, rows: NumRows)
+        
+        gameModeTimed = .Classic
+        
+        timer = NSTimer()
     }
     
     func beginGame() {
@@ -60,6 +77,20 @@ class Swiftris {
             nextShape = Shape.random(PreviewColumn, startingRow: PreviewRow)
         }
         delegate?.gameDidBegin(self)
+        
+        if gameModeTimed == GameMode.Timed {
+            timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("subtractTime"), userInfo: nil, repeats: true)
+        }
+    }
+    
+    @objc func subtractTime() {
+        println(secondsRemaining)
+        secondsRemaining--
+        
+        if(secondsRemaining <= 0)  {
+            timer.invalidate()
+            endGame()
+        }
     }
     
     func newShape() -> (fallingShape:Shape?, nextShape:Shape?) {
@@ -116,6 +147,10 @@ class Swiftris {
     func endGame() {
         score = 0
         level = 1
+        
+        fallingShape = nil
+        nextShape = nil
+        
         delegate?.gameDidEnd(self)
     }
     
