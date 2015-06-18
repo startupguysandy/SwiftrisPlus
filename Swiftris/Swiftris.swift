@@ -20,11 +20,6 @@ let PreviewRow = 1
 let PointsPerLine = 10
 let LevelThreshold = 400
 
-enum GameMode {
-    case Classic
-    case Timed
-}
-
 protocol SwiftrisDelegate {
     // Invoked when the current round of Swiftris ends
     func gameDidEnd(swiftris: Swiftris)
@@ -54,10 +49,11 @@ class Swiftris {
     var score:Int
     var level:Int
     
-    var secondsRemaining = 5
+    var secondsRemaining = 120
+    var readableTimeRemaining:String?
     var timer = NSTimer()
     
-    var gameModeTimed: GameMode
+    var gameModeTimed = false
     
     init() {
         score = 0
@@ -66,8 +62,6 @@ class Swiftris {
         fallingShape = nil
         nextShape = nil
         blockArray = Array2D<Block>(columns: NumColumns, rows: NumRows)
-        
-        gameModeTimed = .Classic
         
         timer = NSTimer()
     }
@@ -78,14 +72,16 @@ class Swiftris {
         }
         delegate?.gameDidBegin(self)
         
-        if gameModeTimed == GameMode.Timed {
+        if gameModeTimed == true {
             timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("subtractTime"), userInfo: nil, repeats: true)
         }
+        println("Timed Mode Check from Swiftris: \(gameModeTimed)")
     }
     
     @objc func subtractTime() {
-        println(secondsRemaining)
         secondsRemaining--
+        readableTimeRemaining = "\(secondsRemaining/60):\(secondsRemaining - (secondsRemaining/60) * 60)"
+        println(readableTimeRemaining)
         
         if(secondsRemaining <= 0)  {
             timer.invalidate()

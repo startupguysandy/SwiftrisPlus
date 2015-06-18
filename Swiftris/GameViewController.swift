@@ -15,6 +15,10 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     var swiftris: Swiftris!
     var panPointReference:CGPoint?
     
+    var timedModeFromMainMenu:Bool!
+    
+    var titleText = String()
+    
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     
@@ -28,16 +32,25 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         // Create and configure the scene
         scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .AspectFill
-        
         scene.tick = didTick
         
+        // Set up Swiftris Game
         swiftris = Swiftris()
         swiftris.delegate = self
+        
+        // Check if Game Mode is a timed game
+        swiftris.gameModeTimed = timedModeFromMainMenu
+        
+        if swiftris.gameModeTimed == true {
+            self.title = "TIME: \(swiftris.secondsRemaining)"
+        } else {
+            self.title = "Classic Mode"
+        }
+        
         swiftris.beginGame()
         
         // Present the scene
         skView.presentScene(scene);
-        
     }
 
     override func prefersStatusBarHidden() -> Bool {
