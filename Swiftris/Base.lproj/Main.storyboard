@@ -23,13 +23,15 @@
                                 <rect key="frame" x="10" y="316" width="168" height="100"/>
                                 <state key="normal" image="Endless"/>
                                 <connections>
-                                    <segue destination="LVB-YS-i5n" kind="show" identifier="showTimedGame" id="ilL-WP-irq"/>
+                                    <action selector="buttonTapped:" destination="ehq-M0-xz2" eventType="touchUpInside" id="8u9-tB-dyd"/>
+                                    <segue destination="LVB-YS-i5n" kind="show" identifier="timedButtonTapped" id="ilL-WP-irq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EjW-7s-prm">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EjW-7s-prm">
                                 <rect key="frame" x="142" y="316" width="168" height="100"/>
                                 <state key="normal" image="Timed"/>
                                 <connections>
+                                    <action selector="buttonTapped:" destination="ehq-M0-xz2" eventType="touchUpInside" id="a8b-x8-vAq"/>
                                     <segue destination="LVB-YS-i5n" kind="show" id="6kR-9i-l36"/>
                                 </connections>
                             </button>
@@ -48,9 +50,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="achievementsViewButton" destination="84Q-4A-9E8" id="9AB-Xe-9Mf"/>
-                        <outlet property="classicGameButton" destination="b4v-7O-x07" id="ETE-jL-f70"/>
                         <outlet property="leadersViewButton" destination="LKs-sg-AjQ" id="QKS-en-ncs"/>
-                        <outlet property="timedGameButton" destination="EjW-7s-prm" id="gj3-5j-yzj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H48-RA-w7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -60,7 +60,7 @@
         <!--Game View Controller-->
         <scene sceneID="CtS-rA-C9T">
             <objects>
-                <viewController id="LVB-YS-i5n" customClass="GameViewController" customModule="Swiftris" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gameViewController" id="LVB-YS-i5n" customClass="GameViewController" customModule="Swiftris" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PCf-gQ-wO7"/>
                         <viewControllerLayoutGuide type="bottom" id="b3d-qh-BLL"/>
@@ -175,6 +175,6 @@
         <image name="whitebg.png" width="84" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6kR-9i-l36"/>
+        <segue reference="ilL-WP-irq"/>
     </inferredMetricsTieBreakers>
 </document>

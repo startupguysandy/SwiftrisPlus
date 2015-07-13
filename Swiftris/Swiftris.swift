@@ -53,7 +53,7 @@ class Swiftris {
     var readableTimeRemaining:String?
     var timer = NSTimer()
     
-    var gameModeTimed = false
+    var gameModeTimed = true
     
     init() {
         score = 0

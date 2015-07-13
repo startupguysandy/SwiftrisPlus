@@ -15,10 +15,16 @@ class MainMenuController: UIViewController {
     @IBOutlet weak var leadersViewButton: UIButton!
     @IBOutlet weak var achievementsViewButton: UIButton!
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var DestViewController : GameViewController = segue.destinationViewController as! GameViewController
+    @IBAction func buttonTapped(sender: UIButton) {
+        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("gameViewController") as! GameViewController
         
-        DestViewController.timedModeFromMainMenu = false
+        if sender.tag == 1 {
+            controller.timedModeFromMainMenu = true
+        } else {
+            controller.timedModeFromMainMenu = false
+        }
+        
+        self.presentViewController(controller, animated: true, completion: nil)        
     }
     
     override func prefersStatusBarHidden() -> Bool {
